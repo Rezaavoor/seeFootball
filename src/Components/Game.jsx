@@ -13,6 +13,7 @@ const media = generateMedia({
 
 export default function Game(props) {
   const Container = styled.div`
+    position: relative;
     height: 100px;
     border-top: 1px black solid;
     display: flex;
