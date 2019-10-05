@@ -30,14 +30,6 @@ export default async function scraper() {
       link: "https://www.viprow.net" + game.attribs.href
     };
   });
-  // console.log(await games[10]);
-
-  // const { dataa } = await axios.get(
-  //   "https://cors-anywhere.herokuapp.com/https://www.viprow.net/levante-online-stream"
-  // );
-  // // $ = cheerio.load(dataa);
-  // console.log(dataa)
-
 
   return await Promise.all(games);
 }
