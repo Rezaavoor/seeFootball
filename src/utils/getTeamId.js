@@ -31,7 +31,7 @@ const getTeamId = name => {
       return 9876;
     case "brescia":
       return 9858;
-    case "milan" || "ac milan":
+    case "ac milan" || "milan":
       return 8564;
     case "lecce":
       return 9888;

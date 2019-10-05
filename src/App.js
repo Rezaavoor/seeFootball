@@ -52,7 +52,7 @@ function App() {
   `;
   const IframeContainer = styled.div`
     width: 700px;
-    height: 400px;
+    height: 520px;
     background-color: white;
     overflow: hidden;
     display: none;
@@ -62,19 +62,20 @@ function App() {
     z-index: 2;
     ${media.lessThan("md")`
       width: 300px;
-      height: 300px;
+      height: 410px;
       left: calc(50vw - 150px);
     `}
   `;
   const Iframe = styled.iframe`
-    width: 750px;
+    width: 1000px;
     height: 900px;
-    margin-left: -25px;
-    margin-top: -300px;
+    margin-left: -32px;
+    margin-top: -250px;
     ${media.lessThan("md")`
       width: 350px;
-      height: 900px;
-      margin-top: -400px;
+      height: 800px;
+      margin-top: -370px;
+      overflow-x:scroll;
     `}
   `;
   const hideModal = () => {
@@ -95,7 +96,7 @@ function App() {
           sandbox='allow-forms allow-same-origin allow-scripts'
           name='theIframe'
           className='theIframe'
-          scrolling='yes'
+          scrolling={window.innerWidth > 980 ? "no" : "yes"}
           allowFullScreen='1'
           src=''
         ></Iframe>

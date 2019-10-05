@@ -1,7 +1,6 @@
 import axios from "axios";
 import cheerio from "cheerio";
 import getTeamId from "./getTeamId";
-import { async } from "q";
 
 const getLogoTransferMarket = async name => {
   name = name.replace(" ", "%");
@@ -20,7 +19,6 @@ const getLogoTransferMarket = async name => {
       table.children[0].data.includes("Clubs") && fetchData(tables[index]);
     } catch {}
   });
-  console.log(`${name} -- transfermarkt`);
   return imgSrc && imgSrc;
 };
 const getLogoTheSportDb = async name => {
@@ -28,7 +26,6 @@ const getLogoTheSportDb = async name => {
   const url = `https://www.thesportsdb.com/api/v1/json/1/searchteams.php?t=${theName}`;
   const { data } = await axios.get(url);
   if (data.teams) {
-    console.log(`${name} -- thesportdb`);
     return data.teams[0].strTeamBadge;
   } else return getLogoTransferMarket(name);
 };
@@ -36,7 +33,6 @@ const getLogoFotmob = async name => {
   if (name) {
     const teamId = getTeamId(name.toLowerCase());
     if (teamId) {
-      console.log(`${name} -- fotmob`);
       const logo = `https://images.fotmob.com/image_resources/logo/teamlogo/${teamId}.png`;
       return logo;
     } else return await getLogoTheSportDb(name);
