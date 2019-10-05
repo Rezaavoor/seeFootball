@@ -41,7 +41,7 @@ function App() {
   `;
   const Modal = styled.div`
     width: 100%;
-    height: 300%;
+    height: 1000vh;
     position: absolute;
     left: 0;
     top: 0;
