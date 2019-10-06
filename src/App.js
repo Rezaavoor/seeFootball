@@ -96,7 +96,8 @@ function App() {
           sandbox='allow-forms allow-same-origin allow-scripts'
           name='theIframe'
           className='theIframe'
-          scrolling={window.innerWidth > 980 ? "no" : "yes"}
+          //scrolling={window.innerWidth > 980 ? "no" : "yes"}
+          scrolling='yes'
           allowFullScreen='1'
           src=''
         ></Iframe>
