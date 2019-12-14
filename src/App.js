@@ -4,7 +4,6 @@ import { generateMedia } from "styled-media-query";
 
 import Games from "./Components/Games";
 import getData from "./utils/getGames";
-import Axios from "axios";
 
 const media = generateMedia({
   xs: "250px",
@@ -15,20 +14,12 @@ const media = generateMedia({
 
 function App() {
   const [games, setGames] = useState([]);
-  const [helloFunctions, setHelloFunctions] = useState("?");
   useEffect(() => {
     (async () => {
       setGames(await getData());
       const loading = document.querySelector("#loading");
       loading.style.display = "none";
     })();
-
-    Axios.get("/.netlify/functions/sayHello")
-      .then(res => {
-        console.log(res.data);
-        setHelloFunctions(res.data);
-      })
-      .catch(setHelloFunctions("LIVE NOW"));
   }, []);
 
   const Container = styled.div`
@@ -96,18 +87,17 @@ function App() {
   };
   return (
     <Container>
-      <InfoText>{helloFunctions}</InfoText>
       <Games games={games} />
-      <Modal className="modal" onClick={() => hideModal()} />
-      <IframeContainer className="theIframeContainer">
+      <Modal className='modal' onClick={() => hideModal()} />
+      <IframeContainer className='theIframeContainer'>
         <Iframe
-          sandbox="allow-forms allow-same-origin allow-scripts"
-          name="theIframe"
-          className="theIframe"
+          sandbox='allow-forms allow-same-origin allow-scripts'
+          name='theIframe'
+          className='theIframe'
           //scrolling={window.innerWidth > 980 ? "no" : "yes"}
-          scrolling="yes"
-          allowFullScreen="1"
-          src=""
+          scrolling='yes'
+          allowFullScreen='1'
+          src=''
         ></Iframe>
       </IframeContainer>
     </Container>
